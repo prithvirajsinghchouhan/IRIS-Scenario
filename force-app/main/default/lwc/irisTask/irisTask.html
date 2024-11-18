@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="Account Sorting" icon-name="standard:contact" >
+        
+        <div style="width: auto;">
+            <div class="slds-m-around_medium">
+                <lightning-layout multiple-rows>
+                    <lightning-layout-item size="6" padding="around-small"></lightning-layout-item>
+                    <lightning-layout-item size="6" padding="around-small">
+                        <lightning-input type="search" data-name="searchField" label="Search Account" onchange={handleSearch}></lightning-input>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <template if:true={data}>
+                    <lightning-datatable data={data}
+                                         columns={columns}
+                                         key-field="Id"
+                                         show-row-number-column="true"
+                                         sorted-by={sortBy}
+                                         sorted-direction={sortDirection}
+                                         onsort={doSorting}
+                                         onsave={handleSave}
+                                         draft-values={saveDraftValues}
+                                         hide-checkbox-column="true"></lightning-datatable>
+                </template>
+            </div>
+        </div>
+        <div class="slds-align_absolute-center" style="height:5rem">
+            <lightning-button disabled={bDisableFirst} icon-name="utility:chevronleft" label="Previous" alternative-text="Previous" onclick={previousPage}></lightning-button>
+            &nbsp;
+            <span class="slds-badge">Showing {pageNumber} &nbsp;of&nbsp; {totalPages} &nbsp;&nbsp;Page(s)</span>
+            &nbsp;
+            <lightning-button disabled={bDisableLast} icon-name="utility:chevronright" label="Next" alternative-text="Next" onclick={nextPage} class="slds-p-horizontal_x-small" icon-position="right"></lightning-button>
+        </div>
+    </lightning-card>
+</template>
