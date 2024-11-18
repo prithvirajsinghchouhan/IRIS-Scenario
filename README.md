@@ -21,4 +21,6 @@ The `sfdx-project.json` file contains useful configuration information for your 
 ## How to pull code in VS code
 - go to Extensions and install 'GitHub Pull Requests' extension.
 - now press Ctrl + Shift + P
-- Enter the git hub url and hit enter
+- Enter the git hub url and hit enter the code will be downloaded in VS code
+- connect the org in which you want to deploy
+- use package.xml file, right click on it and select 'Deploy Source in Manifest to Org'
